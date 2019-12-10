@@ -44,6 +44,9 @@ public class UserRoleServiceImpl implements UserRoleService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void addUserRoleInfo(UserRoleOperationReqVO vo) {
+        if(vo.getRoleIds()==null||vo.getRoleIds().isEmpty()){
+            return;
+        }
         Date createTime=new Date();
         List<SysUserRole> list=new ArrayList<>();
         for (String roleId:vo.getRoleIds()){

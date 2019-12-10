@@ -492,10 +492,11 @@ public class PermissionServiceImpl implements PermissionService {
     public List<PermissionRespNode> selectAllMenuByTree(String permissionId) {
 
         List<SysPermission> list=selectAll();
-        if(!list.isEmpty()&&StringUtils.isEmpty(permissionId)){
+        if(!list.isEmpty()&&!StringUtils.isEmpty(permissionId)){
             for (SysPermission sysPermission:list){
                 if (sysPermission.getId().equals(permissionId)){
                     list.remove(sysPermission);
+                    break;
                 }
             }
         }
