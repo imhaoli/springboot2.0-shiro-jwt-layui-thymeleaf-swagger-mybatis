@@ -27,27 +27,27 @@
 
 #### 效果展示
 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/1.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/2.JPG)
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/4.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/5.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/6.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/7.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/8.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/9.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/10.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/11.JPG) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/12.JPG)  
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/1.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/2.JPG)
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/4.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/5.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/6.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/7.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/8.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/9.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/10.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/11.JPG) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/12.JPG)  
 
 
 ####  还提供了配套视频讲解
 ##### 手机扫码观看
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/16.jpg) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/16.jpg) 
 
 [获取视频](http://i.xue.taobao.com/detail.htm?spm=a2174.7765247.0.0.KXDWYJ&courseId=116855)
 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/15.jpg) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/13.jpg) 
-![](https://raw.githubusercontent.com/huo785/redis-combat/master/src/main/resources/static/images/class/14.jpg)
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/15.jpg) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/13.jpg) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/14.jpg)
 
