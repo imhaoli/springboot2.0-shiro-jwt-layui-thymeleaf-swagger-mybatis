@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.lesson.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.xh.lesson.entity.SysRole">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="TINYINT" property="deleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `name`, description, `status`, create_time, update_time, deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_role
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xh.lesson.entity.SysRole">
+    insert into sys_role (id, `name`, description, 
+      `status`, create_time, update_time, 
+      deleted)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xh.lesson.entity.SysRole">
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xh.lesson.entity.SysRole">
+    update sys_role
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xh.lesson.entity.SysRole">
+    update sys_role
+    set `name` = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="com.xh.lesson.vo.req.RolePageReqVO">
+    select <include refid="Base_Column_List"></include>
+    from sys_role
+    <where>
+      deleted=1
+      <if test="roleName!=null and roleName!=''">
+        AND name LIKE concat('%',#{roleName},'%')
+      </if>
+      <if test="startTime!=null and startTime!=''">
+        AND create_time &gt;= #{startTime}
+      </if>
+      <if test="endTime!=null and endTime!=''">
+        AND create_time &lt;= #{endTime}
+      </if>
+      <if test="roleId!=null and roleId!='' ">
+        AND id=#{roleId}
+      </if>
+      <if test="status!=null and status!='' or status==0 ">
+        AND `status`=#{status}
+      </if>
+    </where>
+  </select>
+
+  <select id="getRoleInfoByIds" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from sys_role
+    where id in
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </select>
+</mapper>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.lesson.mapper.SysPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.xh.lesson.entity.SysPermission">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="perms" jdbcType="VARCHAR" property="perms" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="pid" jdbcType="VARCHAR" property="pid" />
+    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="TINYINT" property="deleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, code, `name`, perms, url, `method`, pid, order_num, `type`, `status`, create_time, 
+    update_time, deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_permission
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_permission
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xh.lesson.entity.SysPermission">
+    insert into sys_permission (id, code, `name`, 
+      perms, url, `method`, 
+      pid, order_num, `type`, 
+      `status`, create_time, update_time, 
+      deleted)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{perms,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, 
+      #{pid,jdbcType=VARCHAR}, #{orderNum,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, 
+      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xh.lesson.entity.SysPermission">
+    insert into sys_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="perms != null">
+        perms,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="method != null">
+        `method`,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="orderNum != null">
+        order_num,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="perms != null">
+        #{perms,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null">
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xh.lesson.entity.SysPermission">
+    update sys_permission
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="perms != null">
+        perms = #{perms,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
+        `method` = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null">
+        order_num = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xh.lesson.entity.SysPermission">
+    update sys_permission
+    set code = #{code,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      perms = #{perms,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      `method` = #{method,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=VARCHAR},
+      order_num = #{orderNum,jdbcType=INTEGER},
+      `type` = #{type,jdbcType=TINYINT},
+      `status` = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectInfoByIds" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from  sys_permission
+    where id in
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    order by order_num DESC
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from sys_permission
+    where deleted=1
+  </select>
+
+  <select id="selectChild" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from sys_permission
+    where deleted=1 and
+    pid = #{pid}
+  </select>
+</mapper>

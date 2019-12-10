@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.lesson.mapper.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.xh.lesson.entity.SysUser">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="sex" jdbcType="TINYINT" property="sex" />
+    <result column="deleted" jdbcType="TINYINT" property="deleted" />
+    <result column="create_id" jdbcType="VARCHAR" property="createId" />
+    <result column="update_id" jdbcType="VARCHAR" property="updateId" />
+    <result column="create_where" jdbcType="TINYINT" property="createWhere" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, salt, `password`, phone, dept_id, real_name, nick_name, email, `status`, 
+    sex, deleted, create_id, update_id, create_where, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xh.lesson.entity.SysUser">
+    insert into sys_user (id, username, salt, 
+      `password`, phone, dept_id, 
+      real_name, nick_name, email, 
+      `status`, sex, deleted, 
+      create_id, update_id, create_where, 
+      create_time, update_time)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{deptId,jdbcType=VARCHAR}, 
+      #{realName,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{sex,jdbcType=TINYINT}, #{deleted,jdbcType=TINYINT}, 
+      #{createId,jdbcType=VARCHAR}, #{updateId,jdbcType=VARCHAR}, #{createWhere,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xh.lesson.entity.SysUser">
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="updateId != null">
+        update_id,
+      </if>
+      <if test="createWhere != null">
+        create_where,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateId != null">
+        #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createWhere != null">
+        #{createWhere,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xh.lesson.entity.SysUser">
+    update sys_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateId != null">
+        update_id = #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createWhere != null">
+        create_where = #{createWhere,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xh.lesson.entity.SysUser">
+    update sys_user
+    set username = #{username,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=TINYINT},
+      sex = #{sex,jdbcType=TINYINT},
+      deleted = #{deleted,jdbcType=TINYINT},
+      create_id = #{createId,jdbcType=VARCHAR},
+      update_id = #{updateId,jdbcType=VARCHAR},
+      create_where = #{createWhere,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getUserInfoByName" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"></include>
+    FROM sys_user
+    WHERE username=#{userName}
+    AND deleted=1
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="com.xh.lesson.vo.req.UserPageReqVO">
+    select <include refid="Base_Column_List"></include>
+    from sys_user
+    <where>
+      deleted=1
+      <if test="username!=null and username!=''">
+        AND username LIKE concat('%',#{username},'%')
+      </if>
+      <if test="nickName!=null and nickName!=''">
+        AND nick_name LIKE concat('%',#{nickName},'%')
+      </if>
+      <if test="startTime!=null and startTime!=''">
+        AND create_time &gt;= #{startTime}
+      </if>
+      <if test="endTime!=null and endTime!=''">
+        AND create_time &lt;= #{endTime}
+      </if>
+      <if test="userId!=null and userId!='' ">
+        AND id=#{userId}
+      </if>
+      <if test="status!=null and status!='' or status==0 ">
+        AND `status`=#{status}
+      </if>
+    </where>
+  </select>
+
+  <select id="selectUserInfoByDeptIds" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from sys_user
+    where dept_id in
+    <foreach collection="list" open="(" close=")" separator="," item="item">
+      #{item}
+    </foreach>
+    and deleted=1
+  </select>
+
+
+  <select id="getUserListByDeptId" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from sys_user
+    where dept_id=#{deptId}
+    and deleted=1
+  </select>
+
+
+  <update id="deletedUsers" parameterType="com.xh.lesson.entity.SysUser">
+    update sys_user
+    <set>
+        deleted = 0,
+      <if test="sysUser.updateId != null">
+        update_id = #{sysUser.updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUser.updateTime != null">
+        update_time = #{sysUser.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id in
+    <foreach collection="list" open="(" close=")" separator="," item="item">
+    #{item}
+  </foreach>
+  </update>
+</mapper>

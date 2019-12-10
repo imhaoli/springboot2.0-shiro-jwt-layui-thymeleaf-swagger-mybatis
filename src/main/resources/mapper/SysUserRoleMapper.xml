@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.lesson.mapper.SysUserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.xh.lesson.entity.SysUserRole">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, role_id, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_role
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user_role
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xh.lesson.entity.SysUserRole">
+    insert into sys_user_role (id, user_id, role_id, 
+      create_time)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xh.lesson.entity.SysUserRole">
+    insert into sys_user_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xh.lesson.entity.SysUserRole">
+    update sys_user_role
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xh.lesson.entity.SysUserRole">
+    update sys_user_role
+    set user_id = #{userId,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <delete id="removeByRoleId">
+    DELETE
+    FROM
+    sys_user_role
+    WHERE
+    role_id = #{roleId}
+  </delete>
+
+
+  <select id="getRoleIdsByUserId" resultType="java.lang.String">
+    SELECT role_id
+    from sys_user_role
+    where user_id =#{userId}
+  </select>
+
+  <insert id="batchUserRole" parameterType="com.xh.lesson.entity.SysUserRole">
+    INSERT INTO sys_user_role (
+    id,
+    role_id,
+    user_id,
+    create_time
+    )
+    VALUES
+    <foreach item="item" collection="list" index="index" separator=",">
+      (
+      #{item.id},
+      #{item.roleId},
+      #{item.userId},
+      #{item.createTime}
+      )
+    </foreach>
+  </insert>
+
+  <delete id="removeByUserId">
+    delete
+    from sys_user_role
+    where user_id=#{userId}
+  </delete>
+
+  <select id="getInfoByUserIdByRoleId" resultType="java.lang.String">
+    select user_id
+    from sys_user_role
+    where   role_id=#{roleId}
+  </select>
+
+
+  <select id="getUserIdsByRoleIds" resultType="java.lang.String">
+    select user_id
+    from sys_user_role
+    where role_id in
+    <foreach collection="list" open="(" close=")" separator="," item="item">
+      #{item}
+    </foreach>
+  </select>
+</mapper>

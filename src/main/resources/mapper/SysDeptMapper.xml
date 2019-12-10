@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.lesson.mapper.SysDeptMapper">
+  <resultMap id="BaseResultMap" type="com.xh.lesson.entity.SysDept">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="dept_no" jdbcType="VARCHAR" property="deptNo" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pid" jdbcType="VARCHAR" property="pid" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="relation_code" jdbcType="VARCHAR" property="relationCode" />
+    <result column="dept_manager_id" jdbcType="VARCHAR" property="deptManagerId" />
+    <result column="manager_name" jdbcType="VARCHAR" property="managerName" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="TINYINT" property="deleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, dept_no, `name`, pid, `status`, relation_code, dept_manager_id, manager_name, 
+    phone, create_time, update_time, deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_dept
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_dept
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xh.lesson.entity.SysDept">
+    insert into sys_dept (id, dept_no, `name`, 
+      pid, `status`, relation_code, 
+      dept_manager_id, manager_name, phone, 
+      create_time, update_time, deleted
+      )
+    values (#{id,jdbcType=VARCHAR}, #{deptNo,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{pid,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{relationCode,jdbcType=VARCHAR}, 
+      #{deptManagerId,jdbcType=VARCHAR}, #{managerName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xh.lesson.entity.SysDept">
+    insert into sys_dept
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deptNo != null">
+        dept_no,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="relationCode != null">
+        relation_code,
+      </if>
+      <if test="deptManagerId != null">
+        dept_manager_id,
+      </if>
+      <if test="managerName != null">
+        manager_name,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="deptNo != null">
+        #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="relationCode != null">
+        #{relationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptManagerId != null">
+        #{deptManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null">
+        #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xh.lesson.entity.SysDept">
+    update sys_dept
+    <set>
+      <if test="deptNo != null">
+        dept_no = #{deptNo,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="relationCode != null">
+        relation_code = #{relationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptManagerId != null">
+        dept_manager_id = #{deptManagerId,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null">
+        manager_name = #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xh.lesson.entity.SysDept">
+    update sys_dept
+    set dept_no = #{deptNo,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=TINYINT},
+      relation_code = #{relationCode,jdbcType=VARCHAR},
+      dept_manager_id = #{deptManagerId,jdbcType=VARCHAR},
+      manager_name = #{managerName,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <!-- @Description:     维护Relation_code 的层级关系-->
+  <!-- @Author:          小霍-->
+  <!-- @CreateDate:      2019/9/19 14:57 -->
+  <update id="updateRelationCode">
+    UPDATE sys_dept
+    set relation_code=replace(relation_code,#{oldStr},#{newStr})
+    where relation_code LIKE CONCAT(#{relationCode},'%')
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from sys_dept
+    where deleted=1
+  </select>
+
+  <select id="selectChildIds" resultType="java.lang.String">
+    select id
+    from sys_dept
+    where relation_code LIKE CONCAT(#{relationCode},'%') and deleted=1
+  </select>
+
+
+  <select id="selectAllByNotContainChild" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from sys_dept
+    <where>
+      deleted=1
+      and id not in
+      <foreach collection="list" open="(" close=")" separator="," item="item">
+      #{item}
+    </foreach>
+    </where>
+  </select>
+</mapper>
