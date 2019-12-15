@@ -59,7 +59,7 @@ public class IndexController {
      */
     @GetMapping("/users/password")
     public String updatePassword(){
-        return "/users/update_password";
+        return "users/update_password";
     }
     /**
      * 用户编辑个人信息 视图
@@ -75,7 +75,7 @@ public class IndexController {
     @GetMapping("/users/info")
     public String userDetail(Model model){
         model.addAttribute("flagType","edit");
-        return "/users/user_edit";
+        return "users/user_edit";
     }
     /**
      * 菜单权限列表  视图
@@ -91,7 +91,7 @@ public class IndexController {
     @GetMapping("/menus")
     public String menusList(){
 
-        return "/menus/menu_list";
+        return "menus/menu_list";
     }
     /**
      * 角色列表 操作视图
@@ -106,7 +106,7 @@ public class IndexController {
      */
     @GetMapping("/roles")
     public String roleList(){
-        return "/roles/role_list";
+        return "roles/role_list";
     }
     /**
      * 用户列表操作 视图
@@ -121,7 +121,7 @@ public class IndexController {
      */
     @GetMapping("/users")
     public String userList(){
-        return "/users/user_list";
+        return "users/user_list";
     }
     /**
      * 系统操作日志 视图
@@ -136,7 +136,7 @@ public class IndexController {
      */
     @GetMapping("/logs")
     public String logList(){
-        return "/logs/log_list";
+        return "logs/log_list";
     }
     /**
      * 组织机构列表 试图
@@ -151,7 +151,7 @@ public class IndexController {
      */
     @GetMapping("/depts")
     public String deptList(){
-        return "/depts/dept_list";
+        return "depts/dept_list";
     }
 
     @GetMapping("/403")
