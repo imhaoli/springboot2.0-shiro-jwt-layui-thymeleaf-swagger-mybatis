@@ -30,11 +30,14 @@
 ##### 手机扫码观看
 ![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/16.jpg) 
 
-[网易云课堂获取视频](https://study.163.com/course/introduction.htm?share=2&shareId=480000002172852&courseId=1209674835&_trace_c_p_k2_=69ae6b3d440249759ad085487f89f73a)
+[获取全套视频](https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.4bf61debIaDnFg&ft=t&id=608067900908)
 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/18.jpg) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/17.jpg) 
 ![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/15.jpg) 
-![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/13.jpg) 
-![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/14.jpg)
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/14.jpg) 
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/13.jpg)
+![](https://raw.githubusercontent.com/huo785/company-frame/master/src/main/resources/static/images/class/19.jpg) 
 
 #### 效果展示
 
