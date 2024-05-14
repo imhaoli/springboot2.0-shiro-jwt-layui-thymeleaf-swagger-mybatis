@@ -1,5 +1,6 @@
 # company-frame
-
+#### 前后端分离版本
+[vue3+SpringBoot2.7版本](https://github.com/imhaoli/msl)
 #### 介绍
 基于spring boot 2.1.6、shiro、jwt、redis、swagger2、mybatis 、thymeleaf、layui 后台管理系统， 权限控制的方式为 RBAC。代码通熟易懂 、JWT（无状态token）过期自动刷新，数据全程 ajax 获取，封装 ajax 工具类、菜单无线层级展示，解决 layui.tree 树形组件，回显问题。数据交互都是以 JSON 格式交互。后台接口RESTful 风格，支持前后端分离，app公用一套接口。 
 
